@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anusuya A | Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f2027;  /* gradient */
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      color: #66fcf1;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #66fcf1;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero img {
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+   }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #66fcf1;
+      border: none;
+      border-radius: 30px;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #66fcf1;
+      color: #000;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+
+    /* Scroll animation */
+    .hidden {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Portfolio</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+      <section class="hero">
+    <img src="anusu.jpg" alt="Profile Photo" />
+    <h1>Hi, I'm <span style="color:#66fcf1;">Anusuya A</span></h1>
+    <p> Aspiring Front-End Developer | Creative Designer | Learner</p>
+    <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});">Explore ↓</button>
+  </header>
+
+  <section id="about" class="hidden">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>I'm a Bachelor of Computer Application student with a passionate web developer who loves designing modern, creative websites and digital portfolios. </p>
+    </div>
+  </section>
+
+  <section id="skills" class="hidden">
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>MYSQL</span>
+         
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="hidden">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:Anusuya Aasirselvi2010@gmail.com" style="color:#66fcf1;">asirselvi2010@gmail.com</a></p>
+        <div class="muted">college: Annamalai University </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Anusuya A  | Designed with </p>
+  </footer>
+
+  <script>
+    // Scroll animation
+    const hiddenElements = document.querySelectorAll('.hidden');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    hiddenElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
